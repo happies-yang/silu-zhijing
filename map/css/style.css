@@ -109,6 +109,24 @@ body {
 }
 .video-tip { color: #8a7a5a; font-size: 11px; margin-top: 8px; text-align: center; }
 
+/* 数据来源面板 */
+.src-box {
+  width: min(720px, 92vw); max-height: 82vh; background: #1d1b21;
+  border: 1px solid #3a3428; border-radius: 14px; padding: 20px 22px;
+  overflow-y: auto;
+}
+.src-title { color: #f0c76a; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+.src-head { color: #8a7a5a; font-size: 12px; margin-bottom: 12px; }
+.src-row {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+  border-bottom: 1px solid #2c2830;
+}
+.src-ico { font-size: 13px; line-height: 1.6; }
+.src-main { flex: 1; }
+.src-main b { color: #e8d9b0; font-size: 13px; }
+.src-src { color: #8a7a5a; font-size: 11.5px; margin-top: 2px; line-height: 1.6; }
+.src-note { color: #6b5f45; font-size: 11px; margin-top: 14px; line-height: 1.7; }
+
 /* 点位列表 */
 .site-list { display: flex; flex-wrap: wrap; gap: 6px; }
 .site-list .empty { color: #8a7a5a; font-size: 12px; }

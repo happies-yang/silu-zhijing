@@ -68,6 +68,25 @@ body {
 .welcome-text { margin-top: 10px; color: var(--text-dim); font-size: 14px; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; }
+
+/* 知识库覆盖说明 */
+.kb {
+  margin: 18px auto 0; max-width: 640px; text-align: left;
+  background: rgba(255,255,255,.035); border: 1px solid var(--card-border);
+  border-radius: 10px; padding: 0 14px;
+}
+.kb summary {
+  cursor: pointer; color: var(--gold); font-size: 13px;
+  padding: 11px 0; user-select: none;
+}
+.kb ul { margin: 0; padding: 2px 0 8px 2px; list-style: none; }
+.kb li { color: var(--text-dim); font-size: 12px; line-height: 1.8; padding-left: 14px; position: relative; }
+.kb li::before { content: "·"; position: absolute; left: 0; color: var(--gold); }
+.kb li b { color: #d8c49a; font-weight: 600; }
+.kb-src {
+  color: #a8926a; font-size: 11px; line-height: 1.8;
+  border-top: 1px dashed var(--card-border); padding: 10px 0 12px;
+}
 .chips button {
   background: rgba(212, 168, 75, 0.12);
   border: 1px solid rgba(212, 168, 75, 0.35);

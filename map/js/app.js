@@ -233,6 +233,31 @@
     });
   }
 
+  function renderSources() {
+    var body = document.getElementById("src-body");
+    if (!body) return;
+    var html = "<div class='src-head'>共 " + SITES.length + " 个点位 · 每个点位的数据来源如下</div>";
+    SITES.forEach(function (s) {
+      var t = s.type, color = TYPE_COLOR[t] || "#9EACEA";
+      html += "<div class='src-row'><span class='src-ico' style='color:" + color + "'>" + (t === "石窟" ? "◇" : t === "关隘" ? "▲" : "●") + "</span>";
+      html += "<div class='src-main'><b>" + s.name + "</b><div class='src-src'>" + (s.source || "公开资料") + "</div></div></div>";
+    });
+    body.innerHTML = html;
+  }
+
+  function bindSources() {
+    var btn = document.getElementById("src-btn");
+    var mask = document.getElementById("src-mask");
+    var close = document.getElementById("src-close");
+    if (!btn || !mask || !close) return;
+    btn.addEventListener("click", function () {
+      renderSources();
+      mask.hidden = false;
+    });
+    close.addEventListener("click", function () { mask.hidden = true; });
+    mask.addEventListener("click", function (e) { if (e.target === mask) mask.hidden = true; });
+  }
+
   loadData(function (ok) {
     if (!ok) {
       document.getElementById("detail").innerHTML = "<div class='empty'>数据加载失败：请通过本地服务器访问本页面（python -m http.server 8100）</div>";
@@ -244,5 +269,6 @@
     renderStats();
     renderRouteNote();
     renderSiteList();
+    bindSources();
   });
 })();
