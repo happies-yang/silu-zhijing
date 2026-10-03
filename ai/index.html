@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丝路智境 · 甘肃文化AI助手</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">丝</div>
+      <div>
+        <div class="brand-name">丝路智境</div>
+        <div class="brand-sub">甘肃文化 AI 助手</div>
+      </div>
+    </div>
+    <div class="status" id="status"><span class="dot"></span>知识库在线</div>
+  </header>
+
+  <main class="chat" id="chat">
+    <div class="welcome">
+      <div class="welcome-title">问一问千年甘肃</div>
+      <div class="welcome-text">敦煌壁画 · 丝绸之路 · 石窟彩陶 · 汉简遗珍，六大主题等你来问。</div>
+      <div class="chips" id="chips"></div>
+    </div>
+  </main>
+
+  <footer class="inputbar">
+    <textarea id="input" rows="1" placeholder="输入你的问题，比如：敦煌壁画为什么保存千年？"></textarea>
+    <button id="send" title="发送">发送</button>
+    <div class="hint" id="modeHint">离线知识库模式</div>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

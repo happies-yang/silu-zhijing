@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丝路智境 · 甘肃段丝路文化地图</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">丝</div>
+      <div>
+        <h1>丝路智境</h1>
+        <p class="sub">甘肃段丝路文化地图 · 数据可视化</p>
+      </div>
+    </div>
+    <div class="legend-wrap">
+      <span class="lg"><i class="dot grotto"></i>石窟</span>
+      <span class="lg"><i class="dot city"></i>丝路重镇</span>
+      <span class="lg"><i class="dot fort"></i>关隘</span>
+      <span class="lg"><i class="line"></i>丝路路线</span>
+      <button class="video-btn" id="video-btn">▶ 观看宣传片</button>
+    </div>
+  </header>
+
+  <!-- 宣传片浮层 -->
+  <div class="video-mask" id="video-mask" hidden>
+    <div class="video-box">
+      <button class="video-close" id="video-close">✕</button>
+      <video id="v-map" class="video-el" src="media/clip-map.mp4" controls playsinline></video>
+      <video id="v-ai" class="video-el" src="media/clip-ai.mp4" controls playsinline hidden></video>
+      <div class="video-tip">地图页 8 秒 → AI 助手页 7 秒 · 完整 15 秒宣传片可在剪映拼接后替换</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="panel left">
+      <h2>图层控制</h2>
+      <div class="layers" id="layers">
+        <button class="layer-btn active" data-layer="all">全部图层</button>
+        <button class="layer-btn" data-layer="route">丝路路线</button>
+        <button class="layer-btn" data-layer="grotto">石窟分布</button>
+        <button class="layer-btn" data-layer="city">丝路重镇</button>
+      </div>
+
+      <h2>数据速览</h2>
+      <div class="stats" id="stats">
+        <div class="stat"><div class="num" id="st-grotto">—</div><div class="lbl">石窟点位</div></div>
+        <div class="stat"><div class="num" id="st-city">—</div><div class="lbl">丝路重镇</div></div>
+        <div class="stat"><div class="num" id="st-fort">—</div><div class="lbl">关隘</div></div>
+        <div class="stat"><div class="num" id="st-route">—</div><div class="lbl">路线</div></div>
+      </div>
+
+      <h2>信息结构</h2>
+      <ul class="struct">
+        <li>路线图层：丝路主线（甘肃段）与南北两道，自东向西流向</li>
+        <li>点位图层：石窟（◇）、重镇（●）、关隘（▲）三类分色编码</li>
+        <li>点击点位查看简介、朝代与数据来源</li>
+      </ul>
+
+      <h2>点位列表</h2>
+      <div class="site-list" id="site-list">
+        <div class="empty">加载中…</div>
+      </div>
+    </aside>
+
+    <main class="map-wrap">
+      <div id="map"></div>
+      <div class="hint">点击地图上的点位查看详情 · 拖动缩放查看</div>
+    </main>
+
+    <aside class="panel right">
+      <h2>点位详情</h2>
+      <div class="detail" id="detail">
+        <div class="empty">点击地图中的点位查看详情</div>
+      </div>
+      <h2>AI 文化追问</h2>
+      <div class="ai-answer" id="ai-answer">
+        <div class="empty">点击详情中的"向AI助手追问"，AI 回答将显示在这里</div>
+      </div>
+      <h2>路线说明</h2>
+      <div class="route-note" id="route-note"></div>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span>数据来源：地图边界为阿里 DataV 公开地理数据；点位坐标为公开地理坐标（OSM/维基百科）；内容依据敦煌研究院、甘肃省文物局及各遗产地公开资料整理。</span>
+    <span>视觉编码：◇ 石窟 · ● 丝路重镇 · ▲ 关隘 · 金色折线 丝路主线</span>
+  </footer>
+</div>
+
+<script src="js/echarts.min.js"></script>
+<script>
+(function () {
+  var btn = document.getElementById("video-btn");
+  var mask = document.getElementById("video-mask");
+  var close = document.getElementById("video-close");
+  var v1 = document.getElementById("v-map");
+  var v2 = document.getElementById("v-ai");
+  if (!btn || !mask) return;
+  function stopAll() {
+    try { v1.pause(); v1.currentTime = 0; v1.hidden = false; } catch (e) {}
+    try { v2.pause(); v2.currentTime = 0; v2.hidden = true; } catch (e) {}
+  }
+  btn.addEventListener("click", function () {
+    mask.hidden = false;
+    stopAll();
+    var p = v1.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+  close.addEventListener("click", function () {
+    mask.hidden = true;
+    stopAll();
+  });
+  mask.addEventListener("click", function (e) {
+    if (e.target === mask) { mask.hidden = true; stopAll(); }
+  });
+  v1.addEventListener("ended", function () {
+    v1.hidden = true;
+    v2.hidden = false;
+    var p = v2.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+  v2.addEventListener("ended", function () { /* 播放完毕 */ });
+})();
+</script>
+<script src="js/app.js?v=20261003"></script>
+</body>
+</html>

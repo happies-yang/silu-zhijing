@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丝路智境 · AI与数字孪生的甘肃文化智能传播平台</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: radial-gradient(ellipse at 50% 0%, #2a2430 0%, #17161a 55%, #101014 100%);
+    min-height: 100vh; color: #e8d9b0;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 64px 24px 48px; }
+  .mark {
+    width: 64px; height: 64px; border-radius: 14px; margin: 0 auto 20px;
+    background: linear-gradient(135deg, #c8963c, #8a5a1e); color: #17161a;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; font-weight: 800; box-shadow: 0 8px 30px rgba(200,150,60,.25);
+  }
+  h1 { text-align: center; font-size: 30px; letter-spacing: 6px; }
+  .sub { text-align: center; color: #8a7a5a; font-size: 13px; margin: 10px 0 40px; letter-spacing: 2px; }
+  .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .card {
+    flex: 1 1 260px; max-width: 400px; padding: 26px; border-radius: 16px;
+    background: linear-gradient(160deg, #26242b, #1d1b21);
+    border: 1px solid #3a3428; text-decoration: none; color: inherit;
+    transition: transform .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: #c8963c; }
+  .card .icon { font-size: 22px; color: #c8963c; margin-bottom: 12px; }
+  .card h2 { font-size: 18px; color: #f0c76a; margin-bottom: 8px; }
+  .card p { font-size: 12.5px; color: #b8a579; line-height: 1.7; }
+  .card .tag {
+    display: inline-block; margin-top: 14px; padding: 4px 10px; font-size: 11px;
+    border-radius: 20px; background: rgba(200,150,60,.12); color: #e0b95a;
+  }
+  .foot { text-align: center; color: #6b5f45; font-size: 11px; margin-top: 44px; line-height: 1.8; }
+  .line { width: 1px; height: 40px; margin: 8px auto; background: #3a3428; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">丝</div>
+  <h1>丝路智境</h1>
+  <div class="sub">AI 与数字孪生的甘肃文化智能传播平台 · 2026 全国大学生数字媒体科技作品及创意竞赛</div>
+
+  <div class="cards">
+    <a class="card" href="map/">
+      <div class="icon">🗺️</div>
+      <h2>丝路文化地图</h2>
+      <p>基于真实地理数据的甘肃段丝路地图：17 个文化点位、3 条丝路路线、图层自由切换，点位详情数据可核验。</p>
+      <span class="tag">数据可视化 · 点击探索</span>
+    </a>
+    <a class="card" href="ai/">
+      <div class="icon">🤖</div>
+      <h2>AI 文化助手</h2>
+      <p>67 条甘肃文化知识库 · 离线检索问答。问敦煌、问丝路、问石窟、问美食，结构化回答 + 推荐追问。</p>
+      <span class="tag">检索增强问答 · 现场提问</span>
+    </a>
+  </div>
+
+  <div class="line"></div>
+  <div class="foot">
+    模块联动：地图点位可一键向 AI 助手追问 · 全部资源本地化，离线可运行<br>
+    数据来源：敦煌研究院 · 甘肃省文物局 · 公开地理数据 · 阿里 DataV
+  </div>
+</div>
+</body>
+</html>
