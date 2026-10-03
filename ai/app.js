@@ -2,18 +2,21 @@
    丝路智境 · 甘肃文化AI助手（纯前端版）
    ------------------------------------------------------------
    零后端依赖：词典分词 + BM25 检索 + 结构化回答组装
-   67 条知识库数据在 data/*.json，完全离线运行
+   150 条知识库数据在 data/*.json，完全离线运行
    ============================================================ */
 (function () {
   "use strict";
 
   var DATA_FILES = [
     "data/dunhuang.json", "data/dunhuang2.json", "data/dunhuang3.json",
+    "data/dunhuang4.json",
     "data/silkroad.json", "data/silkroad2.json", "data/people.json",
     "data/grottoes.json", "data/pottery.json", "data/bamboo.json",
-    "data/relics.json", "data/gansu2.json", "data/lanzhou.json",
-    "data/national.json", "data/heritage.json", "data/history-geo.json",
-    "data/food-festival.json", "data/modern.json"
+    "data/relics.json", "data/relics2.json", "data/gansu2.json", "data/lanzhou.json",
+    "data/national.json", "data/ethnic-detail.json", "data/heritage.json",
+    "data/heritage2.json", "data/history-geo.json", "data/history-geo2.json",
+    "data/red-culture.json",
+    "data/food-festival.json", "data/food2.json", "data/modern.json"
   ];
 
   var STOPWORDS = new Set(("的 了 是 在 和 与 及 或 一个 什么 为什么 怎么 怎样 如何 吗 呢 吧 啊 请 帮 我 你 他 她 它 这 那 有 没有 呀 嘛 都 也 就 而 对 从 到 于 其 之 着 得 被 把 让 哪些 哪里 啥 谁 多少 大概 请问 介绍 讲讲 说 了解 知道 关于 有关 一下 一下").split(" "));
@@ -236,6 +239,14 @@
   function load() {
     var status = document.getElementById("status");
     var chips = document.getElementById("chips");
+    // 双击打开（file://）时浏览器会拦截 fetch，给出明确引导而不是显示"0 条"
+    if (location.protocol === "file:") {
+      status.innerHTML = '<span class="dot" style="background:#ea6668"></span>请用本地服务器打开';
+      document.getElementById("chat").insertAdjacentHTML("afterbegin",
+        "<div class='msg bot'><div class='bubble'>检测到直接双击打开（file:// 协议），浏览器会拦截本地数据加载。" +
+        "请在本目录运行 <b>python -m http.server 8200</b>，然后访问 http://127.0.0.1:8200/ai/</div></div>");
+      return;
+    }
     var queue = DATA_FILES.slice();
     function next() {
       if (!queue.length) {

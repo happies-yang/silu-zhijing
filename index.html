@@ -65,6 +65,24 @@
   .src-item .n { color: #c8963c; font-weight: 700; margin-right: 6px; }
   .foot { text-align: center; color: #6b5f45; font-size: 11px; margin-top: 44px; line-height: 1.8; }
   .line { width: 1px; height: 40px; margin: 8px auto; background: #3a3428; }
+  /* 使用数据条 */
+  .stat-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .stat-chip {
+    flex: 1 1 120px; padding: 14px 10px; border-radius: 12px; text-align: center;
+    background: linear-gradient(160deg, #26242b, #1d1b21); border: 1px solid #3a3428;
+  }
+  .stat-chip b { display: block; font-size: 22px; color: #f0c76a; margin-bottom: 4px; }
+  .stat-chip span { font-size: 11px; color: #8a7a5a; letter-spacing: 1px; }
+  /* 用户反馈 */
+  .fb-card {
+    padding: 18px 20px; border-radius: 12px;
+    background: linear-gradient(160deg, #26242b, #1d1b21); border: 1px solid #3a3428;
+    font-size: 12.5px; line-height: 1.8; color: #b8a579;
+  }
+  .fb-badge {
+    display: inline-block; padding: 3px 10px; margin-bottom: 8px; font-size: 11px;
+    border-radius: 20px; background: rgba(200,150,60,.12); color: #e0b95a;
+  }
 </style>
 </head>
 <body>
@@ -83,7 +101,7 @@
     <a class="card" href="ai/">
       <div class="icon">🤖</div>
       <h2>AI 文化助手</h2>
-      <p>67 条甘肃文化知识库 · 离线检索问答。问敦煌、问丝路、问石窟、问美食，结构化回答 + 推荐追问。</p>
+      <p>150 条甘肃文化知识库 · 离线检索问答。问敦煌、问丝路、问石窟、问美食，结构化回答 + 推荐追问。</p>
       <span class="tag">检索增强问答 · 现场提问</span>
     </a>
   </div>
@@ -101,10 +119,30 @@
       </div>
       <div class="arch-link">▼</div>
       <div class="arch-row">
-        <div class="arch-item"><b>知识库层</b>67 条知识条目（17 个主题文件） · 六大主题全覆盖 · 权威文献数据固化入库</div>
+        <div class="arch-item"><b>知识库层</b>150 条知识条目（24 个主题文件） · 六大板块全覆盖 · 权威文献数据固化入库</div>
         <div class="arch-item"><b>数据层</b>期刊文献 · 敦煌研究院 / 甘肃省文物局公开资料 · 阿里 DataV 地理数据 · 公开坐标数据</div>
       </div>
       <div class="arch-link">纯前端实现，全部资源本地化，离线可运行 · GitHub Pages 在线部署</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>使用数据</h2>
+    <div class="stat-row">
+      <div class="stat-chip"><b>17</b><span>文化点位</span></div>
+      <div class="stat-chip"><b>3</b><span>丝路路线</span></div>
+      <div class="stat-chip"><b>150</b><span>知识条目</span></div>
+      <div class="stat-chip"><b>6</b><span>大板块</span></div>
+      <div class="stat-chip"><b>24</b><span>数据文件</span></div>
+      <div class="stat-chip"><b>100%</b><span>资源本地化 · 离线可运行</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>用户反馈</h2>
+    <div class="fb-card">
+      <span class="fb-badge">试用数据整理中</span>
+      <p>我们正在组织同学与老师对作品进行真实试用，并按《用户验证记录模板》收集地图交互清晰度、AI 回答有用性、模块联动顺畅度与推荐意愿等反馈；试用统计完成后，将在此展示用户验证数据。</p>
     </div>
   </div>
 
@@ -121,7 +159,7 @@
   <div class="line"></div>
   <div class="foot">
     模块联动：地图点位可一键向 AI 助手追问 · 全部资源本地化，离线可运行<br>
-    参赛：2026 第十四届全国大学生数字媒体科技作品及创意竞赛 · AIGC 类数字创意作品
+    参赛：2026 第十四届全国大学生数字媒体科技作品及创意竞赛 · 移动与网络应用开发类
   </div>
 </div>
 </body>
